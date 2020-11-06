@@ -3,7 +3,8 @@
          <!-- <button calss="g-button" :class="{'undefined':true}">
          <button calss="g-button" :class="{'right':true}">
          <button calss="g-button" :class="{'left':true}"> -->
-       <g-icon v-if="icon" :name="icon"></g-icon>
+       <g-icon  class="icon" v-if="icon" :name="icon"></g-icon>
+       <g-icon class="loadding" name="loading"></g-icon>
         <div class="content">
         <slot></slot>
       </div>
@@ -32,6 +33,10 @@ export default {
 }
 </script>
 <style lang="scss">
+@keyframes spin{
+    0%{ transform: rotate(0deg);}
+    100%{ transform: rotate(360deg);}
+}
   .g-button{
             font-size: var(--font-size);
             height:var(--button-height);
@@ -68,6 +73,10 @@ export default {
                 margin-right: 0;
                 margin-left: .1em;
             }
+        }
+        .loadding{
+            animation: spin 1s  infinite linear;
+
         }
   }
 

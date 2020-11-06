@@ -12445,6 +12445,7 @@ exports.default = void 0;
 //
 //
 //
+//
 //`#i-${icon}`模板字符串插值。插入一个icon .icon的值是从props获得的，
 //props的值是通过index.html icon="settings"传过来的
 //实现用户在index,html输入settings我们就给了icon
@@ -12488,7 +12489,11 @@ exports.default = _default;
       class: ((_obj = {}), (_obj["icon-" + _vm.iconPosition] = true), _obj)
     },
     [
-      _vm.icon ? _c("g-icon", { attrs: { name: _vm.icon } }) : _vm._e(),
+      _vm.icon
+        ? _c("g-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
+        : _vm._e(),
+      _vm._v(" "),
+      _c("g-icon", { staticClass: "loadding", attrs: { name: "loading" } }),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
     ],
