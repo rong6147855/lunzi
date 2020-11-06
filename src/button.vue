@@ -1,10 +1,11 @@
 <template>
-    <button class="g-button" :class="{[`icon-${iconPosition}`]:true}">
+    <button class="g-button" :class="{[`icon-${iconPosition}`]:true}"
+    @click="x">
          <!-- <button calss="g-button" :class="{'undefined':true}">
          <button calss="g-button" :class="{'right':true}">
          <button calss="g-button" :class="{'left':true}"> -->
-       <g-icon  class="icon" v-if="icon" :name="icon"></g-icon>
-       <g-icon class="loadding" name="loading"></g-icon>
+       <g-icon  class="icon" v-if="icon && !loading" :name="icon"></g-icon>
+       <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
         <div class="content">
         <slot></slot>
       </div>
@@ -18,6 +19,10 @@ export default {
     // props:['icon','iconPosition']//icon位置 left right
     props:{
         icon: {},
+        loading:{
+            type:Boolean,
+            default:false
+        },
         iconPosition: {
             typen: String,
             default: 'left',
@@ -28,6 +33,11 @@ export default {
                 }else{
                     return true;}
             }
+        }
+    },
+    methods:{
+        x(){
+            this.$emit('click')
         }
     }
 }
@@ -74,8 +84,8 @@ export default {
                 margin-left: .1em;
             }
         }
-        .loadding{
-            animation: spin 1s  infinite linear;
+        .loading{
+            animation: spin 1s  infinite linear;//滚2s 无线的滚，线性的滚
 
         }
   }

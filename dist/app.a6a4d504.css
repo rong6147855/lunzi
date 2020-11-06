@@ -42,7 +42,7 @@
   margin-right: 0;
   margin-left: 0.1em;
 }
-.g-button .loadding {
+.g-button .loading {
   animation: spin 1s infinite linear;
 }
 .g-icon {

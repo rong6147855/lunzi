@@ -12446,6 +12446,7 @@ exports.default = void 0;
 //
 //
 //
+//
 //`#i-${icon}`模板字符串插值。插入一个icon .icon的值是从props获得的，
 //props的值是通过index.html icon="settings"传过来的
 //实现用户在index,html输入settings我们就给了icon
@@ -12453,6 +12454,10 @@ var _default = {
   // props:['icon','iconPosition']//icon位置 left right
   props: {
     icon: {},
+    loading: {
+      type: Boolean,
+      default: false
+    },
     iconPosition: {
       typen: String,
       default: 'left',
@@ -12465,6 +12470,11 @@ var _default = {
           return true;
         }
       }
+    }
+  },
+  methods: {
+    x: function x() {
+      this.$emit('click');
     }
   }
 };
@@ -12486,14 +12496,20 @@ exports.default = _default;
     "button",
     {
       staticClass: "g-button",
-      class: ((_obj = {}), (_obj["icon-" + _vm.iconPosition] = true), _obj)
+      class: ((_obj = {}), (_obj["icon-" + _vm.iconPosition] = true), _obj),
+      on: { click: _vm.x }
     },
     [
-      _vm.icon
+      _vm.icon && !_vm.loading
         ? _c("g-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
         : _vm._e(),
       _vm._v(" "),
-      _c("g-icon", { staticClass: "loadding", attrs: { name: "loading" } }),
+      _vm.loading
+        ? _c("g-icon", {
+            staticClass: "loading icon",
+            attrs: { name: "loading" }
+          })
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
     ],
@@ -12615,7 +12631,12 @@ _vue.default.component('g-button', _button.default);
 _vue.default.component('g-icon', _icon.default);
 
 new _vue.default({
-  el: '#app'
+  el: '#app',
+  data: {
+    loading1: false,
+    loading2: true,
+    loading3: false
+  }
 });
 },{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
