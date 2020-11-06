@@ -12450,8 +12450,23 @@ exports.default = void 0;
 //props的值是通过index.html icon="settings"传过来的
 //实现用户在index,html输入settings我们就给了icon
 var _default = {
-  props: ['icon', 'iconPosition'] //icon位置 left right
+  // props:['icon','iconPosition']//icon位置 left right
+  props: {
+    icon: {},
+    iconPosition: {
+      typen: String,
+      default: 'left',
+      validator: function validator(value) {
+        console.log(value);
 
+        if (value !== 'left' && value !== 'right') {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }
+  }
 };
 exports.default = _default;
         var $481450 = exports.default || module.exports;
