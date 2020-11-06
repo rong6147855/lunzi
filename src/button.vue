@@ -3,9 +3,8 @@
          <!-- <button calss="g-button" :class="{'undefined':true}">
          <button calss="g-button" :class="{'right':true}">
          <button calss="g-button" :class="{'left':true}"> -->
-        <svg  v-if="icon" class="icon">
-            <use :xlink:href="`#i-${icon}`"></use></svg> 
-      <div class="content">
+       <g-icon v-if="icon" :name="icon"></g-icon>
+        <div class="content">
         <slot></slot>
       </div>
     </button>
