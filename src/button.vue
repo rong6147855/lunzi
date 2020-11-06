@@ -12,10 +12,14 @@
     </button>
 </template>
 <script>
+import Icon from './icon'
 //`#i-${icon}`模板字符串插值。插入一个icon .icon的值是从props获得的，
             //props的值是通过index.html icon="settings"传过来的
             //实现用户在index,html输入settings我们就给了icon
 export default {
+    components:{
+        'g-icon':Icon
+    },
     // props:['icon','iconPosition']//icon位置 left right
     props:{
         icon: {},
