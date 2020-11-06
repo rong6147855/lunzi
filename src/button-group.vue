@@ -16,7 +16,7 @@ if(name!=='button'){
 }
 </script>
 <style lang="scss">
-.g-button-group{
+.g-button-group{ //试
     display: inline-flex;
     justify-content: center;
     align-items: center;
